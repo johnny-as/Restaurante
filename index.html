@@ -11,7 +11,7 @@
 	<Header>
 		<nav class="navbar bg-light">
 			<div class="container">
-			<a class="navbar-brand" href="#">
+			<a class="navbar-brand" id="nav-fred" href="#">
 				<img src="img/logo.png" alt="Logo Dom Frederico" width="50" height="50">
 				<h3 class="text-start">Dom Frederico</h3>
 			</a>
@@ -20,7 +20,7 @@
 	</Header>
 	<main>
 		<section>
-			<form>
+			<form id="adicionar-pedido">
 				<fieldset>
 					<legend>Pedido</legend>
 					<div class="mb-3">
@@ -29,7 +29,7 @@
 					</div>
 					<div class="mb-3">
 						<label for="num" class="form-label">Número da Mesa</label>
-						<select id="disabledSelect" class="form-select">
+						<select id="mesa" class="form-select">
 						  <option>Escolha</option>
 						  <option>Mesa 1</option>
 						  <option>Mesa 2</option>
@@ -39,12 +39,12 @@
 					</div>
 					<div class="mb-3">
 						<label for="prato" class="form-label">Escolha o prato</label>
-						<select id="disabledSelect" class="form-select">
+						<select id="prato" class="form-select">
 						  <option>Escolha</option>
-						  <option>Risoto de Camarão - R$ 58,99</option>
-						  <option>Lula na Manteiga - R$ 82,50</option>
-						  <option>Salmão Grelhado - R$ 60,00</option>
-						  <option>Tilápia a moda da casa - R$ 45,90</option>
+						  <option>Risoto de Camarão - R$ 58.99</option>
+						  <option>Lula na Manteiga - R$ 82.50</option>
+						  <option>Salmão Grelhado - R$ 60.00</option>
+						  <option>Tilápia a moda da casa - R$ 45.90</option>
 						</select>
 					</div>
 					<div class="mb-3">
@@ -52,7 +52,7 @@
 						<input id="qtd" name="quant" type="text" placeholder="quantidade de pratos" class="campo">
 					</div>
 					<div class="p-3">
-				  		<button type="submit" class="btn btn-primary">Adicionar Pedido</button>
+				  		<button id="add-pedido" type="submit" class="btn btn-primary">Adicionar Pedido</button>
 					</div>
 				</fieldset>
 			  </form>
@@ -70,11 +70,12 @@
 							<th scope="col">Valor Total</th>
 						</tr>
 					</thead>
-					<tbody id="tabela-pacientes">
+					<tbody id="tabela-pedido">
 					</tbody>
 				</table>
 		</section>
 	</main>
+	<script src="js/principal.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
