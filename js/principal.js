@@ -1,40 +1,32 @@
+$("#add-pedido").click(addPedido);
 
-var botaoAdicionar = document.querySelector("#add-pedido");
-
-botaoAdicionar.addEventListener("click", function(event){
+function addPedido(event){
    event.preventDefault();
-   var form = document.querySelector("#adicionar-pedido");
+   var nome = $("#nome").val();
+   var mesa = $("#mesa").val();
+   var prato = $("#prato").val();
+   var qtd = $("#qtd").val();
 
-   var nome = form.nome.value;
-   var mesa = form.mesa.value;
-   var prato = form.prato.value;
-   var qtd = form.qtd.value;
-   var valU = prato.slice(-5);
-   var valT = valU * qtd;
+   var linha = novaLinha(nome,mesa,prato,qtd,prato.slice(-5),prato.slice(-5)*qtd);
    
-   var pedidoTr = document.createElement("tr");
+   $("#tabela-pedido").prepend(linha);
+}
 
-   var nomeTd = document.createElement("td");
-   var mesaTd = document.createElement("td");
-   var pratoTd = document.createElement("td");
-   var qtdTd = document.createElement("td");
-   var valUnitTd = document.createElement("td");
-   var valTotTd = document.createElement("td");
+function novaLinha(nome,mesa,prato,qtd,valU,valT){
+   var linha = $("<tr>");
+   var nomeTd = $("<td>").text(nome);
+   var mesaTd = $("<td>").text(mesa);
+   var pratoTd = $("<td>").text(prato);
+   var qtdTd = $("<td>").text(qtd);
+   var valUnitTd = $("<td>").text("R$ "+ valU);
+   var valTotTd = $("<td>").text("R$ "+ valT.toFixed(2));
 
-   nomeTd.textContent = nome;
-   mesaTd.textContent = mesa;
-   pratoTd.textContent = prato;
-   qtdTd.textContent = qtd;
-   valUnitTd.textContent = valU;
-   valTotTd.textContent = valT.toFixed(2);
+   linha.append(nomeTd);
+   linha.append(mesaTd);
+   linha.append(pratoTd);
+   linha.append(qtdTd);
+   linha.append(valUnitTd);
+   linha.append(valTotTd);
 
-   pedidoTr.appendChild(nomeTd);
-   pedidoTr.appendChild(mesaTd);
-   pedidoTr.appendChild(pratoTd);
-   pedidoTr.appendChild(qtdTd);
-   pedidoTr.appendChild(valUnitTd);
-   pedidoTr.appendChild(valTotTd);
-
-   var tabela = document.querySelector("#tabela-pedido");
-   tabela.appendChild(pedidoTr);
-});
+   return linha;
+}
